@@ -1,72 +1,90 @@
+body{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+ border-color: gray;
+ border-style: outset;
+
+}
+
 .formNewBook{
-display: grid;
-gap: 7px;
-margin: 10px;
-padding: 10px;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+display: flex;
+border: 2px;
 border-style: outset;
-width: 180px;
-background-color: rgb(245,245,245);
-font-size: 14;
+padding: 10px;
+gap: 5px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+background-color: rgb(255, 255, 255);
+font-size: 14px;
 color:black;
 align-items: center;
 }
 
 .formBox{
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    display:none;
     padding: 1px;
-    background-color: rgb(255, 254, 254);
+    background-color: rgba(255, 254, 254, 0.404);
   }
+.form{
 
+  width: 50px;
+  border-color: white;
+}
+label{
+  font-size: 1.2rem;
+  padding: 10px;
+}
 .btnNewBook{
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  font-size: 20px;
- 
-
-  border-color: aliceblue;
+  background-color: white;
+  border-color: white;
   border-style: outset;
-  background-color: rgb(255, 255, 255);
+
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.btnNewBook img{
+  width: 40px;
+}
 .submit{
-  border-radius: 10px;
+  border-radius: 2px;
   border-color: transparent;
-  font-size: .9rem;
+  font-size: 1.1rem;
   color:black;
   font-weight: 500;
-  background-color: rgb(255, 255, 255);
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(7, 155, 110, 0.562);
 }
 
 table, tr, th {
   border: 1px solid black;
+ 
 }
 table {
   border-collapse: collapse;
   border: 2px solid rgb(200,200,200);
   letter-spacing: 1px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 thead {
   display: table-header-group;
   vertical-align: middle;
   border-color: inherit;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 td, th {
   border: 1px solid rgb(190,190,190);
   padding: 10px 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 th {
   background-color: rgb(235,235,235);
 }
 td {
   text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 tr:nth-child(even) td {
   background-color: rgb(250,250,250);
@@ -75,3 +93,16 @@ tr:nth-child(even) td {
 tr:nth-child(odd) td {
   background-color: rgb(245,245,245);
 }
+.containertable{
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+ .header{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  align-items: center;
+ }

@@ -66,34 +66,6 @@ function addBookToLibrary(value){
 
     
 }
-var removeID;
-var temp;
-// var removeBtn = document.getElementsByClassName('removeBtn');
-// removeBtn.addEventListener('click', removeBook);
-// function removeBook(){
-   
-
-   
-  
- 
-// }
-
-
-
-// function displayBooks(){
-//         myLibrary.forEach(function(myBook, index){
-            
-//             // books.innerHTML= "Name" + ":"+" "+ myLibrary[index].title +"  "+ "Author" + ":"+ myLibrary[index].author +"  "+ "Pages" + ";"+ "  " + myLibrary[index].number, "Read" + ";"+"  "+ myLibrary[index].read;
-//         titlediv.innerHTML = "Title" + ""+ ":"+ myLibrary[index].title;
-//         authordiv.innerHTML = "Author" + ""+ ":"+ myLibrary[index].author;
-//         numberdiv.innerHTML = "Number" + ""+ ":"+ myLibrary[index].number;
-//         readdiv.innerHTML = "Read " + ""+ ":"+ myLibrary[index].read;
-
-// })};
-        
-
-  
-
 
 form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
@@ -104,7 +76,6 @@ function handleSubmit(event) {
 
     const value = Object.fromEntries(data.entries());
     addBookToLibrary(value);
-    // displayBooks()
     form.reset();
    }
 submitButton.addEventListener('click',()=> {document.querySelector(".formBox").style.display="none";  } )
