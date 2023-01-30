@@ -4,7 +4,8 @@ const tableBody =document.querySelector('.tableBody')
 form.addEventListener('submit', handleSubmit);
 const btnNewBook = document.querySelector(".btnNewBook")
 const submitButton = document.querySelector(".submit")
-const formcancel =document.querySelector('img');
+const formcancel =form.querySelector('img');
+
 
 formcancel.addEventListener('click', toggle);
 let newBook;
@@ -23,9 +24,10 @@ let harrypotter = new Book("Harry Potter", "J.K Rowling", "1320","Unread")
 myLibrary.push(harrypotter);
 var books;
 function addBookToLibrary(value){
-   newBook = new Book (value.title, value.author, value.number, value.read)
+    newBook = new Book (value.title, value.author, value.number, value.read)
     myLibrary.push(newBook);
-displayBooks();
+    displayBooks();
+
 }   
 
     
@@ -41,8 +43,8 @@ function handleSubmit(event) {
     addBookToLibrary(value);
     form.reset();
     toggle();
-  
-   
+
+    
 
    }
 
@@ -58,24 +60,37 @@ function toggle(){
 function displayBooks(){
     tableBody.innerHTML="";
 for(let i=0 ; i<myLibrary.length ; i++ ){
-  
+    
     tableBody.innerHTML = tableBody.innerHTML +
     `<tr > 
         <td>` + myLibrary[i].title +`</td>
         <td>` + myLibrary[i].author +`</td>
         <td>` + myLibrary[i].number +`</td>
         <td>`+myLibrary[i].read +`</td>
-        <td > 
-            <button class="removeBtn" ` + `id=`+ i  + `  ><img src="/icons/x-sq.svg" alt="" ></button>
+        <td>
+            <form action="" class="readBox">
+                 <label class="switch" >
+                    <input type="checkbox" class="checkbox" id=`+i+`>
+                     <span class="slider round" id=`+ i +`></span>
+                </label>
+             </form>
         </td>
-    </tr> `
-   
+        <td > 
+            <img src="/icons/x-sq.svg" alt="" class="removeBtn" id=`+ i  + ` >
+        </td>
+    </tr> `;
+    
+  
+    }
+    for(let u=0 ; u<myLibrary.length ; u++ )
+    if(myLibrary[u].read === 'Read'){
+        document.getElementById(u).checked = true;
+        }
+    
 }
 
 
-};
 
-displayBooks();
 
  document.addEventListener("keydown", function(event) {
     if(event.keyCode === 27){
@@ -83,10 +98,34 @@ displayBooks();
       toggle()
    }
 });
-const removeBtn =tableBody.querySelectorAll('img');
-
-    removeBtn.addEventListener ("click" , (e) => {
-            console.log(Number(e.target.id));
+document.addEventListener("click", function(e){
+    const target = e.target.closest(".removeBtn"); 
+  
+    if(target){
+       
+     ;
+      e.target.parentNode.parentNode.remove();
             myLibrary.splice(Number(e.target.id), 1);
-            e.target.parentNode.remove();
-        })
+            
+    }
+    displayBooks();
+  });
+
+  document.addEventListener("click", function(e){
+    const target = e.target.closest(".slider"); 
+
+    
+    if(target){
+       
+        console.log(Number(e.target.id));
+        myLibrary[e.target.id].read= "Read"
+        console.log( myLibrary[e.target.id].read)
+        displayBooks();
+   
+    }
+  });
+
+
+
+
+  displayBooks();

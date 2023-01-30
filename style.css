@@ -1,8 +1,35 @@
+@font-face {
+  font-family: 'bananas';
+  src: url('/fonts/webfontkit-20230130-124513/bananasitalicpersonaluseregular-wybxo.woff2') format('woff2'),
+       url('/fonts/webfontkit-20230130-124513/bananasitalicpersonaluseregular-wybxo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
+}
+@font-face {
+  font-family: 'moonbright';
+  src: url('/fonts/moonbrightfontkit/moonbrightdemo-1ggn2.woff2') format('woff2'),
+       url('/fonts/moonbrightfontkit/moonbrightdemo-1ggn2.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'story';
+  src: url('/fonts/moonbrightfontkit/storyelementregular-x3rwa.woff2') format('woff2'),
+       url('/fonts/moonbrightfontkit/storyelementregular-x3rwa.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 body{
   box-sizing: border-box;
   border-color: black;
-  box-shadow: 0px 0px 1px 1px rgb(19, 18, 18);
+  /* box-shadow: 0px 0px 1px 1px rgb(19, 18, 18); */
 }
 #formNewBook{
 display: flex;
@@ -16,9 +43,10 @@ padding: 10px;
 border-style: outset;
 padding: 10px;
 gap: 10px;
-
+border-radius: 10px;
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-background-color: rgba(238, 231, 231, 0.315);
+background-color: #6a6d6d;
+	background-image: linear-gradient(315deg, #acafaf 0%, #e5e9e8 74%);
 font-size: 11px;
 color:black;
 
@@ -27,7 +55,7 @@ visibility:hidden;
 #formNewBook.active{
   position:absolute;
   top: 20%;
-  left: 40%;
+  left: 45%;
   visibility: visible;
   opacity: 1;
   transition: 0.5s;
@@ -53,19 +81,7 @@ label{
   font-size: 1.2rem;
   
 }
-.btnNewBook{
-  border-radius: 4px;
-  margin: 10px;
-  padding: 10px;
-  background-color: white;
-  border-style: outset;
-  border-color: rgba(255, 252, 249, 0.61);
 
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.btnNewBook:hover{
-  background-color: rgba(234, 235, 236, 0.747);
-}
 .submit{
  position: relative;
   border-radius: 1px;
@@ -99,9 +115,9 @@ thead {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 td, th {
- 
+ font-size: 20px;
   padding: 15px 27px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Alegreya';
   
 }
 th {
@@ -110,17 +126,11 @@ th {
 }
 td {
   text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Alegreya';
   box-shadow: 0px 0.5px 0px 0px rgba(99, 97, 97, 0.692);
  
 }
-tr:nth-child(even) td {
- 
-}
 
-tr:nth-child(odd) td {
-
-}
 .containertable{
   display: flex;
   justify-content: center;
@@ -137,6 +147,11 @@ tr:nth-child(odd) td {
   box-sizing: border-box;
   border-color: black;
   box-shadow: 0px 0.5px 0px 0px rgb(19, 18, 18);
+  
+ }
+ .headerText{
+  font-family: 'Alegreya';
+  font-size: 35px;
  }
 
  #blur.active{
@@ -144,19 +159,159 @@ tr:nth-child(odd) td {
   pointer-events: none;
   user-select: none;
  }
- .removeBtn{
-  background-color: rgb(255, 255, 255);
-  border-color: none;
-  border-style: none;
- }
- .removeBtn :hover{
-  background-color: rgba(185, 185, 185, 0.13);
-  border-radius: 2px;
- }
+
  .formcancel{
  position: relative;
   width: 10%;
-  left: 20vh;
+  left: 19vh;
 
   
+}
+.menuicon{ 
+  position: relative;
+  width:30px;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+}
+
+
+/* slide box */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #63a075;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+footer>span>a>img{
+  width: 1rem;
+}
+footer{
+  position:absolute;
+ font-size: 2rem;
+  left:50vw;
+  bottom: 5%;
+  font-family: 'bananas';
+  font-weight: 100;
+}
+
+/*new book button */
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+.btnNewBook {
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	background-color: #6a6d6d;
+	background-image: linear-gradient(315deg, #42a39d 0%, #8ac0b9 74%);
+	border: none;
+	border-radius: 50%;
+	transition: 200ms;
+
+}
+
+.btnNewBook>img{
+	fill: rgb(233, 228, 228);
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.btnNewBook:before {
+	content: 'Add a book';
+	position: absolute;
+	transform: translateX(-50%) translateY(45px);
+	font-size: 15px;
+	transition: 200ms;
+	color:transparent;
+	font-weight: bold;
+}
+
+.btnNewBook:hover {
+	box-shadow: 0 1px 5px rgba(0,0,0,1.5);
+
+}
+
+.btnNewBook:hover::before {
+	color: rgb(70, 67, 67);
+}
+
+.btnNewBook:hover svg {
+		animation: bounce 3s infinite linear;
+}
+
+@keyframes bounce {
+	0% {transform: translateX(-50%) translateY(-50%)}
+	25% {transform: translateX(-50%) translateY(-65%)}
+	50% {transform: translateX(-50%) translateY(-50%)}
+	75% {transform: translateX(-50%) translateY(-35%)}
+	100% {transform: translateX(-50%) translateY(-50%)}
+}
+
+.btnNewBook:focus {
+	outline: none;
 }

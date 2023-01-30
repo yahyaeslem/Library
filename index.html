@@ -7,12 +7,13 @@
     <title>Document</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet'>
 </head>
 <body>
     <div  id="blur">
     <div class="header">
-        <span>Your Personal Library</span>
-        <span><button class="btnNewBook" onclick="toggle()" >Add New Book</button></span>
+        <span class="headerText">Your Personal Library</span>
+        <span><button class="btnNewBook noselect" onclick="toggle()"> <img src="/icons/plus.svg" alt=""></button></span>
     </div>
  
     <div class="containertable">
@@ -23,6 +24,7 @@
                     <th>Author</th>
                     <th>Page</th>
                     <th>Status</th>
+                    <th></th>
                     <th colspan="2"></th>
         
                 </thead>
@@ -34,7 +36,9 @@
     </div>
     </div>
 
-
+ <footer><span> yahyaeslem </span><span><a href="https://github.com/yahyaeslem"><img src="icons/logo-github.svg" alt=""></a>
+</span></footer>
+    
 
 </body>
 
