@@ -76,7 +76,7 @@ for(let i=0 ; i<myLibrary.length ; i++ ){
              </form>
         </td>
         <td > 
-            <img src="/icons/x-sq.svg" alt="" class="removeBtn" id=`+ i  + ` >
+            <img src="icons/x-sq.svg" alt="" class="removeBtn" id=`+ i  + ` >
         </td>
     </tr> `;
     
