@@ -1,71 +1,34 @@
 
-
-const library=document.querySelector('#library')
- const form = document.querySelector('form');
- const tableBody =document.querySelector('.tableBody')
- form.addEventListener('submit', handleSubmit);
+const form = document.querySelector('form');
+const tableBody =document.querySelector('.tableBody')
+form.addEventListener('submit', handleSubmit);
 const btnNewBook = document.querySelector(".btnNewBook")
 const submitButton = document.querySelector(".submit")
+const formcancel =document.querySelector('img');
+
+formcancel.addEventListener('click', toggle);
 let newBook;
 let myLibrary =[];
-btnNewBook.addEventListener("click", (e) => { document.querySelector(".formBox").style.display="block"; });
+
 function Book(title,author,number,read) {
     this.title =title;
     this.author = author
     this.number =number
     this.read=read
-    // function info(){
-    //     return this.info;
-    // }
 }
 
+let tolkien = new Book("Lord of The Rings",  "J.R.R Tolkien", "1020","Read")
+myLibrary.push(tolkien);
+let harrypotter = new Book("Harry Potter", "J.K Rowling", "1320","Unread")
+myLibrary.push(harrypotter);
 var books;
 function addBookToLibrary(value){
    newBook = new Book (value.title, value.author, value.number, value.read)
     myLibrary.push(newBook);
-    var datacount= myLibrary.length- 1;
-        books = document.createElement('tr');
-        tableBody.appendChild(books);
-        books.classList.add('books');
-        books.setAttribute('id', datacount)
-    
-        let titlediv = document.createElement('td');
-        books.appendChild(titlediv)
-        titlediv.classList.add('bookSpec')
-        
-        let authordiv= document.createElement('td');
-        books.appendChild(authordiv)
-        authordiv.classList.add('bookSpec')
-        let numberdiv= document.createElement('td');
-        books.appendChild(numberdiv)
-        numberdiv.classList.add('bookSpec')
-        let readdiv = document.createElement('td')
-        books.appendChild(readdiv)
-        readdiv.classList.add('bookSpec')
-        let readLabel = document.createElement('label')
-        let readSelect = document.createElement('select');
-        let readOptionYes = document.createElement('option');
-        let readOptionNo = document.createElement('option');
-        readdiv.appendChild(readLabel)
-        readLabel.appendChild(readSelect)
-        readSelect.appendChild(readOptionYes)
-        readSelect.appendChild(readOptionNo)
-        readOptionYes.setAttribute("value","yes") 
-        readOptionYes.innerHTML= "Yes"
-        readOptionNo.setAttribute("value","no")
-        readOptionNo.innerHTML="No"
-        // let remove = document.createElement('button');
-        // books.appendChild(remove);
-        // remove.classList.add('removeBtn')
-        // remove.setAttribute('id', datacount)
-        readLabel.setAttribute("for", "readform")
-
-        titlediv.innerHTML = value.title;
-        authordiv.innerHTML = value.author;
-        numberdiv.innerHTML = value.number;
+displayBooks();
+}   
 
     
-}
 
 form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
@@ -77,8 +40,53 @@ function handleSubmit(event) {
     const value = Object.fromEntries(data.entries());
     addBookToLibrary(value);
     form.reset();
+    toggle();
+  
+   
+
    }
-submitButton.addEventListener('click',()=> {document.querySelector(".formBox").style.display="none";  } )
-      
+
+function toggle(){
+    var blur=document.getElementById('blur');
+    blur.classList.toggle('active');
+    var formNewBook = document.getElementById("formNewBook");
+    formNewBook.classList.toggle('active');
+}
 
 
+
+function displayBooks(){
+    tableBody.innerHTML="";
+for(let i=0 ; i<myLibrary.length ; i++ ){
+  
+    tableBody.innerHTML = tableBody.innerHTML +
+    `<tr > 
+        <td>` + myLibrary[i].title +`</td>
+        <td>` + myLibrary[i].author +`</td>
+        <td>` + myLibrary[i].number +`</td>
+        <td>`+myLibrary[i].read +`</td>
+        <td > 
+            <button class="removeBtn" ` + `id=`+ i  + `  ><img src="/icons/x-sq.svg" alt="" ></button>
+        </td>
+    </tr> `
+   
+}
+
+
+};
+
+displayBooks();
+
+ document.addEventListener("keydown", function(event) {
+    if(event.keyCode === 27){
+       //Esc key was pressed
+      toggle()
+   }
+});
+const removeBtn =tableBody.querySelectorAll('img');
+
+    removeBtn.addEventListener ("click" , (e) => {
+            console.log(Number(e.target.id));
+            myLibrary.splice(Number(e.target.id), 1);
+            e.target.parentNode.remove();
+        })
