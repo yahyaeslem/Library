@@ -160,6 +160,7 @@ td {
   user-select: none;
  }
 
+
  .formcancel{
  position: relative;
   width: 10%;
@@ -246,7 +247,7 @@ footer{
  font-size: 18px;
   left:50vw;
   bottom: 5%;
-  font-family: 'bananas';
+ font-family: 'Alegreya';
   font-weight: 100;
 }
 
