@@ -113,16 +113,23 @@ document.addEventListener("click", function(e){
 
   document.addEventListener("click", function(e){
     const target = e.target.closest(".slider"); 
-
-    
-    if(target){
-       
-        console.log(Number(e.target.id));
+//    const checked= document.getElementsByClassName('checbox').checked
+       const checkbox= e.target.previousElementSibling
+        const checkedBox = checkbox.checked
+    if(target ){
+       if(checkedBox){
+        myLibrary[e.target.id].read= "Unread"
+        console.log("1")
+       }
+       else{
         myLibrary[e.target.id].read= "Read"
-        console.log( myLibrary[e.target.id].read)
+        // myLibrary[e.target.id].read= "Read"
+       }
         displayBooks();
+       }
+       
    
-    }
+    
   });
 
 
