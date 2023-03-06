@@ -11,13 +11,14 @@ formcancel.addEventListener('click', toggle);
 let newBook;
 let myLibrary =[];
 
-function Book(title,author,number,read) {
+class Book {
+constructor(title,author,number,read) {
     this.title =title;
     this.author = author
     this.number =number
     this.read=read
 }
-
+}
 let tolkien = new Book("Lord of The Rings",  "J.R.R Tolkien", "1020","Read")
 myLibrary.push(tolkien);
 let harrypotter = new Book("Harry Potter", "J.K Rowling", "1320","Unread")
